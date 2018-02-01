@@ -1,0 +1,81 @@
+/**
+ * Utility Namespaces
+ * ------------------
+ * Single responsability rules having very specific and targeted tasks
+ * Text alignment or positioning, font-sizing, clearfix, etc.
+ *
+ * One step away from inline-styling, use sparingly!
+ * Can carry "!important" declaration to override less specific rules
+ * Shouldn't be modified after having been written, could be used anywhere
+ */
+
+
+/* ====== SHOW/HIDE ====== */
+
+/* --- hidden everywhere --- */
+.is-hidden {
+    display: none !important;
+}
+
+/* --- hidden on small screens only, display blocks on wider screens --- */
+.is-shown-block-medium-high {
+    display: none !important;
+    @include medium-high { display: block !important; }
+    @include from-large { display: block !important; }
+}
+
+/* --- no rules for small screens, hidden on every other screens --- */
+.is-hidden-medium {
+    @include from-medium {
+        display: none !important;
+    }
+}
+
+/* --- hidden on mobile/tablet, flexbox on larger screens --- */
+.is-shown-flex-medium {
+    display: none !important;
+    @include from-medium { display: flex !important; }
+}
+
+/* --- remove side paddings --- */
+.is-paddingless {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+
+.is-paddingless-medium {
+    @include from-medium {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
+}
+
+.is-paddingless-large {
+    @include from-large {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
+}
+
+/* --- restrain element to its parent's width  --- */
+.is-responsive {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+/* --- displays an element as block and centers it --- */
+.is-centered-block {
+    @include center-block;
+    display: block;
+}
+
+
+
+/* ====== TEXT TRANSFORMATIONS ====== */
+
+/* --- aligns text to center --- */
+.is-text-centered { text-align: center; }
+
+/* --- sets uppercase --- */
+.is-uppercase { text-transform: uppercase; }

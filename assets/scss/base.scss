@@ -1,0 +1,67 @@
+/**
+ * Modern minimal "reset" using box-sizing
+ * https://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/
+ *
+ * And for deeper (but safe) normalizing/resetting CSS, I'm using Normalize.css
+ * The call is made directly from HTML to allow easy update of the vendor
+ * https://stackoverflow.com/questions/6887336/what-is-the-difference-between-normalize-css-and-reset-css
+ */
+
+html {
+    box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+
+/* ====== GLOBAL STYLES USED ACROSS THE WEBSITE ====== */
+html {
+    font-size: 62.5%;
+    font-family: 'Blender';
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    color: $text-light;
+}
+
+body {
+    margin: 0;
+}
+
+h1, h2, h3, h4, h5, h6,
+p, li, dd, dt, span, a {
+    font-size: 1.4rem;
+    letter-spacing: 0.6px;
+    color: $text-light;
+    margin: 0;
+}
+
+a:link { text-decoration: none; }
+a:visited { color: $text-light; }
+a:hover { text-decoration: underline; }
+a:active {text-decoration: underline; }
+
+p {
+    &:not(:last-child) {
+        margin-bottom: 1.5rem;
+    }
+}
+
+ul {
+    list-style-type: none;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-left: 0;
+}
+
+dl {
+    margin-top: 0;
+    margin-bottom: 0;
+
+    dd {
+        margin-left: 0;
+    }
+}
